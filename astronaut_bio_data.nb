@@ -1,0 +1,1018 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     40112,       1009]
+NotebookOptionsPosition[     36886,        894]
+NotebookOutlinePosition[     37227,        909]
+CellTagsIndexPosition[     37184,        906]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6663667684833517`*^9, 3.6663667779673*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["import names", "Section",
+ CellChangeTimes->{{3.666368153113801*^9, 3.6663681568731766`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"namesRaw", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{
+     "URLSave", "[", "\"\<http://www.jsc.nasa.gov/Bios/astrobio.html\>\"", 
+      "]"}], ",", "\"\<Data\>\""}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6663667855720606`*^9, 3.6663668257370763`*^9}, {
+   3.6663668831088133`*^9, 3.6663668844129434`*^9}, 3.666367191368636*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "namesRaw", "]"}]], "Input",
+ CellChangeTimes->{{3.666366930832585*^9, 3.666366934813983*^9}}],
+
+Cell[BoxData["4"], "Output",
+ CellChangeTimes->{3.6663669351290145`*^9, 3.6671258440792723`*^9, 
+  3.66712591896076*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"namesFilter", "=", 
+   RowBox[{"Drop", "[", 
+    RowBox[{
+     RowBox[{"Drop", "[", 
+      RowBox[{
+       RowBox[{"Drop", "[", 
+        RowBox[{
+         RowBox[{"Flatten", "[", 
+          RowBox[{
+           RowBox[{"Drop", "[", 
+            RowBox[{
+             RowBox[{"Drop", "[", 
+              RowBox[{
+               RowBox[{"Flatten", "[", 
+                RowBox[{"namesRaw", ",", "3"}], "]"}], ",", "4"}], "]"}], ",", 
+             RowBox[{"-", "6"}]}], "]"}], ",", "1"}], "]"}], ",", "1"}], 
+        "]"}], ",", 
+       RowBox[{"-", "1"}]}], "]"}], ",", "1"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"namesFilter", "//", "TableForm"}]}], "Input",
+ CellChangeTimes->{{3.6663669425217533`*^9, 3.666366990352536*^9}, {
+  3.6663670970932093`*^9, 3.666367298829381*^9}, {3.6671289307709107`*^9, 
+  3.66712893606544*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Acaba, Joseph M.\"\>", "2004", "19"},
+    {"\<\"Arnold, Richard R.\"\>", "2004", "19"},
+    {"\<\"Aunon, Serena M.\"\>", "2009", "20"},
+    {"\<\"Barratt, Michael R.\"\>", "2000", "18"},
+    {"\<\"Behnken, Robert L.\"\>", "2000", "18"},
+    {"\<\"Boe, Eric A.\"\>", "2000", "18"},
+    {"\<\"Bowen, Stephen G.\"\>", "2000", "18"},
+    {"\<\"Bresnik, Randolph J.\"\>", "2004", "19"},
+    {"\<\"Burbank, Daniel C.\"\>", "1996", "16"},
+    {"\<\"Cassada, Josh A.\"\>", "2013", "21"},
+    {"\<\"Cassidy, Christopher J.\"\>", "2004", "19"},
+    {"\<\"Dyson, Tracy Caldwell\"\>", "1998", "17"},
+    {"\<\"Epps, Jeanette J.\"\>", "2009", "20"},
+    {"\<\"Feustel, Andrew J.\"\>", "2000", "18"},
+    {"\<\"Fincke, E. Michael\"\>", "1996", "16"},
+    {"\<\"Fischer, Jack D.\"\>", "2009", "20"},
+    {"\<\"Fossum, Michael E.\"\>", "1998", "17"},
+    {"\<\"Glover, Victor J.\"\>", "2013", "21"},
+    {"\<\"Hague, Tyler N.\"\>", "2013", "21"},
+    {"\<\"Hopkins, Michael S.\"\>", "2009", "20"},
+    {"\<\"Hurley, Douglas G.\"\>", "2000", "18"},
+    {"\<\"Kelly, Scott J.\"\>", "1996", "16"},
+    {"\<\"Kimbrough, Robert Shane\"\>", "2004", "19"},
+    {"\<\"Koch, Christina H.\"\>", "2013", "21"},
+    {"\<\"Kopra, Timothy L.\"\>", "2000", "18"},
+    {"\<\"Lindgren, Kjell N.\"\>", "2009", "20"},
+    {"\<\"Mann, Nicole Aunapu\"\>", "2013", "21"},
+    {"\<\"Marshburn, Thomas H.\"\>", "2004", "19"},
+    {"\<\"McArthur, K. Megan\"\>", "2000", "18"},
+    {"\<\"McClain, Anne C.\"\>", "2013", "21"},
+    {"\<\"Meir, Jessica U.\"\>", "2013", "21"},
+    {"\<\"Morgan, Andrew R.\"\>", "2013", "21"},
+    {"\<\"Nyberg, Karen L.\"\>", "2000", "18"},
+    {"\<\"Pettit, Donald R.\"\>", "1996", "16"},
+    {"\<\"Rubins, Kathleen (Kate)\"\>", "2009", "20"},
+    {"\<\"Tingle, Scott D.\"\>", "2009", "20"},
+    {"\<\"Vande Hei, Mark T.\"\>", "2009", "20"},
+    {"\<\"Virts, Terry W., Jr.\"\>", "2000", "18"},
+    {"\<\"Walheim, Rex J.\"\>", "1996", "16"},
+    {"\<\"Walker, Shannon\"\>", "2004", "19"},
+    {"\<\"Wheelock, Douglas H.\"\>", "1998", "17"},
+    {"\<\"Wilson, Stephanie D.\"\>", "1996", "16"},
+    {"\<\"Whitson, Peggy A.\"\>", "1996", "16"},
+    {"\<\"Williams, Jeffrey N.\"\>", "1996", "16"},
+    {"\<\"Williams, Sunita L.\"\>", "1998", "17"},
+    {"\<\"Wilmore, Barry E.\"\>", "2000", "18"},
+    {"\<\"Wiseman, G. Reid\"\>", "2009", "20"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.6663671539158907`*^9, 3.6663672990714054`*^9}, 
+   3.6664393127472734`*^9, 3.6671258444063053`*^9, 3.667125919933857*^9, 
+   3.6671289366985035`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "namesFilter", "]"}]], "Input",
+ CellChangeTimes->{{3.666367359234421*^9, 3.666367363879885*^9}}],
+
+Cell[BoxData["47"], "Output",
+ CellChangeTimes->{3.666367364173915*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"Length", "[", 
+     RowBox[{"namesFilter", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"Length", "[", "namesFilter", "]"}]}], "}"}]}], "]"}], "//", 
+  "DeleteDuplicates"}]], "Input",
+ CellChangeTimes->{{3.666367373306828*^9, 3.6663674110946064`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "3", "}"}]], "Output",
+ CellChangeTimes->{{3.666367390587556*^9, 3.6663674116416607`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"namesFilter", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.666367432702767*^9, 3.6663674372592225`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Acaba, Joseph M.\"\>", ",", "2004", ",", "19"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.666367437745271*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"Head", "[", 
+    RowBox[{"namesFilter", "[", 
+     RowBox[{"[", 
+      RowBox[{"1", ",", "i"}], "]"}], "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "3"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.66636743913641*^9, 3.666367474156912*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"String", ",", "Integer", ",", "Integer"}], "}"}]], "Output",
+ CellChangeTimes->{{3.666367445682065*^9, 3.666367474984995*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"namesFilter", "[", 
+  RowBox[{"[", 
+   RowBox[{"1", ",", "1"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.666367479730469*^9, 3.6663674848449807`*^9}}],
+
+Cell[BoxData["\<\"Acaba, Joseph M.\"\>"], "Output",
+ CellChangeTimes->{3.666367485292025*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Min", "[", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"namesFilter", "[", 
+     RowBox[{"[", 
+      RowBox[{"i", ",", "3"}], "]"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"Length", "[", "namesFilter", "]"}]}], "}"}]}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6663681635348425`*^9, 3.6663681861721067`*^9}}],
+
+Cell[BoxData["16"], "Output",
+ CellChangeTimes->{3.666368186590148*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["scrape all PDF bios", "Section",
+ CellChangeTimes->{{3.666368200748564*^9, 3.66636821461195*^9}, {
+  3.6664405041654034`*^9, 3.6664405060285892`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"namesLower", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"StringSplit", "[", 
+      RowBox[{"StringSplit", "[", 
+       RowBox[{
+        RowBox[{"ToLowerCase", "[", 
+         RowBox[{"namesFilter", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "1"}], "]"}], "]"}], "]"}], ",", "\"\<,\>\""}], 
+       "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "namesFilter", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.666369749036377*^9, 3.6663698614426165`*^9}, {
+   3.6663698940368757`*^9, 3.6663698943249044`*^9}, {3.6663701296154313`*^9, 
+   3.6663701943539047`*^9}, {3.66637025911738*^9, 3.6663702672051888`*^9}, 
+   3.6663707884353065`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"urls", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"\"\<http://www.jsc.nasa.gov/Bios/htmlbios/\>\"", ",", 
+       RowBox[{"namesLower", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", "\"\<-\>\"", ",", 
+       RowBox[{
+        RowBox[{"Characters", "[", 
+         RowBox[{"namesLower", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "2", ",", "1"}], "]"}], "]"}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"Characters", "[", 
+         RowBox[{"namesLower", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "2", ",", "2"}], "]"}], "]"}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<.pdf\>\""}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "namesLower", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "[", "urls", "]"}]}], "Input",
+ CellChangeTimes->{{3.6663703367511425`*^9, 3.666370426764143*^9}, {
+  3.6663704707255387`*^9, 3.6663704997744436`*^9}, {3.666370538792345*^9, 
+  3.6663706079152565`*^9}, {3.6663707700984735`*^9, 3.6663707769631596`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(2\\)\[NoBreak] of \[NoBreak]\\!\\({\\\
+\"shannon\\\"}\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.666370608429308*^9, {3.666370770496513*^9, 3.6663707776452274`*^9}, 
+   3.6671258550173664`*^9, 3.6671259247673407`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringJoin", "::", "string"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"String expected at position \[NoBreak]\\!\\(2\\)\[NoBreak] \
+in \[NoBreak]\\!\\(\\\"http://www.jsc.nasa.gov/Bios/htmlbios/walker-s\\\" <> \
+\\(\\(\\(\\({\\(\\({\\(\\({\\\"acaba\\\"}\\)\\), \\(\\({\\\"joseph\\\", \
+\\\"m.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"arnold\\\"}\\)\\), \
+\\(\\({\\\"richard\\\", \\\"r.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"aunon\\\"}\\)\\), \\(\\({\\\"serena\\\", \\\"m.\\\"}\\)\\)}\
+\\)\\), \\(\\({\\(\\({\\\"barratt\\\"}\\)\\), \\(\\({\\\"michael\\\", \
+\\\"r.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"behnken\\\"}\\)\\), \
+\\(\\({\\\"robert\\\", \\\"l.\\\"}\\)\\)}\\)\\), \\(\\(\[LeftSkeleton] 37 \
+\[RightSkeleton]\\)\\), \\(\\({\\(\\({\\\"whitson\\\"}\\)\\), \
+\\(\\({\\\"peggy\\\", \\\"a.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"williams\\\"}\\)\\), \\(\\({\\\"jeffrey\\\", \\\"n.\\\"}\\)\
+\\)}\\)\\), \\(\\({\\(\\({\\\"williams\\\"}\\)\\), \\(\\({\\\"sunita\\\", \
+\\\"l.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"wilmore\\\"}\\)\\), \
+\\(\\({\\\"barry\\\", \\\"e.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"wiseman\\\"}\\)\\), \\(\\({\\\"g.\\\", \\\"reid\\\"}\\)\\)}\
+\\)\\)}\\)\\) \[LeftDoubleBracket] \\(\\(40, 2, 2\\)\\) \[RightDoubleBracket]\
+\\)\\) <> \\\".pdf\\\"\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/StringJoin\\\", ButtonNote -> \
+\\\"StringJoin::string\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.666370608429308*^9, {3.666370770496513*^9, 3.6663707776452274`*^9}, 
+   3.6671258550173664`*^9, 3.6671259248373475`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringJoin", "::", "string"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"String expected at position \[NoBreak]\\!\\(2\\)\[NoBreak] \
+in \[NoBreak]\\!\\(\\\"http://www.jsc.nasa.gov/Bios/htmlbios/walker-s\\\" <> \
+\\(\\(\\(\\({\\(\\({\\(\\({\\\"acaba\\\"}\\)\\), \\(\\({\\\"joseph\\\", \
+\\\"m.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"arnold\\\"}\\)\\), \
+\\(\\({\\\"richard\\\", \\\"r.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"aunon\\\"}\\)\\), \\(\\({\\\"serena\\\", \\\"m.\\\"}\\)\\)}\
+\\)\\), \\(\\({\\(\\({\\\"barratt\\\"}\\)\\), \\(\\({\\\"michael\\\", \
+\\\"r.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"behnken\\\"}\\)\\), \
+\\(\\({\\\"robert\\\", \\\"l.\\\"}\\)\\)}\\)\\), \\(\\(\[LeftSkeleton] 37 \
+\[RightSkeleton]\\)\\), \\(\\({\\(\\({\\\"whitson\\\"}\\)\\), \
+\\(\\({\\\"peggy\\\", \\\"a.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"williams\\\"}\\)\\), \\(\\({\\\"jeffrey\\\", \\\"n.\\\"}\\)\
+\\)}\\)\\), \\(\\({\\(\\({\\\"williams\\\"}\\)\\), \\(\\({\\\"sunita\\\", \
+\\\"l.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"wilmore\\\"}\\)\\), \
+\\(\\({\\\"barry\\\", \\\"e.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"wiseman\\\"}\\)\\), \\(\\({\\\"g.\\\", \\\"reid\\\"}\\)\\)}\
+\\)\\)}\\)\\) \[LeftDoubleBracket] \\(\\(40, 2, 2\\)\\) \[RightDoubleBracket]\
+\\)\\) <> \\\".pdf\\\"\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/StringJoin\\\", ButtonNote -> \
+\\\"StringJoin::string\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{
+  3.666370608429308*^9, {3.666370770496513*^9, 3.6663707776452274`*^9}, 
+   3.6671258550173664`*^9, 3.6671259249093547`*^9}],
+
+Cell[BoxData["47"], "Output",
+ CellChangeTimes->{3.666370777795243*^9, 3.667125855366401*^9, 
+  3.667125924912355*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"For", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"i", "\[LessEqual]", "47"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"URLSave", "[", 
+    RowBox[{
+     RowBox[{"urls", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], ",", 
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"\"\<C:/Users/graham/Documents/astroBio/\>\"", ",", 
+       RowBox[{"namesLower", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", "\"\<-\>\"", ",", 
+       RowBox[{
+        RowBox[{"Characters", "[", 
+         RowBox[{"namesLower", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "2", ",", "1"}], "]"}], "]"}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"Characters", "[", 
+         RowBox[{"namesLower", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "2", ",", "2"}], "]"}], "]"}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], ",", "\"\<.pdf\>\""}], "]"}]}], 
+    "]"}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.66636835433092*^9, 3.6663684493104177`*^9}, {
+  3.6663695196204376`*^9, 3.66636955584606*^9}, {3.66637088507897*^9, 
+  3.6663709346889305`*^9}, {3.666370992947756*^9, 3.6663709933727984`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(2\\)\[NoBreak] of \[NoBreak]\\!\\({\\\
+\"shannon\\\"}\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.666371004143875*^9, 3.667125936872551*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringJoin", "::", "string"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"String expected at position \[NoBreak]\\!\\(2\\)\[NoBreak] \
+in \[NoBreak]\\!\\(\\\"C:/Users/graham/Documents/astroBio/walker-s\\\" <> \\(\
+\\(\\(\\({\\(\\({\\(\\({\\\"acaba\\\"}\\)\\), \\(\\({\\\"joseph\\\", \\\"m.\\\
+\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"arnold\\\"}\\)\\), \
+\\(\\({\\\"richard\\\", \\\"r.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"aunon\\\"}\\)\\), \\(\\({\\\"serena\\\", \\\"m.\\\"}\\)\\)}\
+\\)\\), \\(\\({\\(\\({\\\"barratt\\\"}\\)\\), \\(\\({\\\"michael\\\", \
+\\\"r.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"behnken\\\"}\\)\\), \
+\\(\\({\\\"robert\\\", \\\"l.\\\"}\\)\\)}\\)\\), \\(\\(\[LeftSkeleton] 37 \
+\[RightSkeleton]\\)\\), \\(\\({\\(\\({\\\"whitson\\\"}\\)\\), \
+\\(\\({\\\"peggy\\\", \\\"a.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"williams\\\"}\\)\\), \\(\\({\\\"jeffrey\\\", \\\"n.\\\"}\\)\
+\\)}\\)\\), \\(\\({\\(\\({\\\"williams\\\"}\\)\\), \\(\\({\\\"sunita\\\", \
+\\\"l.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"wilmore\\\"}\\)\\), \
+\\(\\({\\\"barry\\\", \\\"e.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"wiseman\\\"}\\)\\), \\(\\({\\\"g.\\\", \\\"reid\\\"}\\)\\)}\
+\\)\\)}\\)\\) \[LeftDoubleBracket] \\(\\(40, 2, 2\\)\\) \[RightDoubleBracket]\
+\\)\\) <> \\\".pdf\\\"\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/StringJoin\\\", ButtonNote -> \
+\\\"StringJoin::string\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.666371004143875*^9, 3.6671259369425583`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringJoin", "::", "string"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"String expected at position \[NoBreak]\\!\\(2\\)\[NoBreak] \
+in \[NoBreak]\\!\\(\\\"C:/Users/graham/Documents/astroBio/walker-s\\\" <> \\(\
+\\(\\(\\({\\(\\({\\(\\({\\\"acaba\\\"}\\)\\), \\(\\({\\\"joseph\\\", \\\"m.\\\
+\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"arnold\\\"}\\)\\), \
+\\(\\({\\\"richard\\\", \\\"r.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"aunon\\\"}\\)\\), \\(\\({\\\"serena\\\", \\\"m.\\\"}\\)\\)}\
+\\)\\), \\(\\({\\(\\({\\\"barratt\\\"}\\)\\), \\(\\({\\\"michael\\\", \
+\\\"r.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"behnken\\\"}\\)\\), \
+\\(\\({\\\"robert\\\", \\\"l.\\\"}\\)\\)}\\)\\), \\(\\(\[LeftSkeleton] 37 \
+\[RightSkeleton]\\)\\), \\(\\({\\(\\({\\\"whitson\\\"}\\)\\), \
+\\(\\({\\\"peggy\\\", \\\"a.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"williams\\\"}\\)\\), \\(\\({\\\"jeffrey\\\", \\\"n.\\\"}\\)\
+\\)}\\)\\), \\(\\({\\(\\({\\\"williams\\\"}\\)\\), \\(\\({\\\"sunita\\\", \
+\\\"l.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"wilmore\\\"}\\)\\), \
+\\(\\({\\\"barry\\\", \\\"e.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"wiseman\\\"}\\)\\), \\(\\({\\\"g.\\\", \\\"reid\\\"}\\)\\)}\
+\\)\\)}\\)\\) \[LeftDoubleBracket] \\(\\(40, 2, 2\\)\\) \[RightDoubleBracket]\
+\\)\\) <> \\\".pdf\\\"\\)\[NoBreak]. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/StringJoin\\\", ButtonNote -> \
+\\\"StringJoin::string\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.666371004143875*^9, 3.6671259370125647`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["scrape all html bios", "Section",
+ CellChangeTimes->{{3.66644051122911*^9, 3.666440517349722*^9}}],
+
+Cell["\<\
+there were a few with HTML bios mixed in. Next we scrape these down as txt\
+\>", "Text",
+ CellChangeTimes->{{3.6663715132497807`*^9, 3.6663715512505803`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<C:/Users/graham/Documents/astroBio/barratt-mr.txt\>\"", ",", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "URLSave", "[", 
+     "\"\<http://www.jsc.nasa.gov/Bios/htmlbios/barratt-mr.html\>\"", "]"}], 
+    "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.666371649894444*^9, 3.666371723898844*^9}}],
+
+Cell[BoxData["\<\"C:/Users/graham/Documents/astroBio/barratt-mr.txt\"\>"], \
+"Output",
+ CellChangeTimes->{{3.6663716723026843`*^9, 3.666371692973751*^9}, 
+   3.666371724497904*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<C:/Users/graham/Documents/astroBio/dyson-tc.txt\>\"", ",", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "URLSave", "[", 
+     "\"\<http://www.jsc.nasa.gov/Bios/htmlbios/caldwell.html\>\"", "]"}], 
+    "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.666371649894444*^9, 3.666371723898844*^9}, {
+  3.666371773854839*^9, 3.6663717924136944`*^9}}],
+
+Cell[BoxData["\<\"C:/Users/graham/Documents/astroBio/dyson-tc.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.666371794089862*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<C:/Users/graham/Documents/astroBio/feustel-aj.txt\>\"", ",", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "URLSave", "[", 
+     "\"\<http://www.jsc.nasa.gov/Bios/htmlbios/feustel-aj.html\>\"", "]"}], 
+    "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.666371649894444*^9, 3.666371723898844*^9}, {
+  3.666371773854839*^9, 3.666371827511204*^9}}],
+
+Cell[BoxData["\<\"C:/Users/graham/Documents/astroBio/feustel-aj.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.666371794089862*^9, 3.6663718297414265`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<C:/Users/graham/Documents/astroBio/mcarthur-km.txt\>\"", ",", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "URLSave", "[", 
+     "\"\<http://www.jsc.nasa.gov/Bios/htmlbios/mcarthur-km.html\>\"", "]"}], 
+    "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.666371649894444*^9, 3.666371723898844*^9}, {
+  3.666371773854839*^9, 3.6663717924136944`*^9}, {3.6663718509125433`*^9, 
+  3.666371864368889*^9}}],
+
+Cell[BoxData["\<\"C:/Users/graham/Documents/astroBio/mcarthur-km.txt\"\>"], \
+"Output",
+ CellChangeTimes->{3.666371794089862*^9, 3.6663718656140137`*^9}]
+}, Open  ]],
+
+Cell["now using a pdf -> txt converter we clean the PDF to data", "Text",
+ CellChangeTimes->{{3.6663719995104017`*^9, 3.6663720214235935`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["scrub data", "Section",
+ CellChangeTimes->{{3.666368899729455*^9, 3.666368908369319*^9}}],
+
+Cell["\<\
+Shannon Walker and Kathleen Rubins don\[CloseCurlyQuote]t have a middle name \
+listed on NASA\[CloseCurlyQuote]s site. Let\[CloseCurlyQuote]s replace the \
+blank with a _\
+\>", "Text",
+ CellChangeTimes->{{3.666442803280292*^9, 3.666442838176781*^9}, {
+  3.6664441678347335`*^9, 3.6664441936913195`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"names", "=", 
+   RowBox[{"ReplacePart", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"StringJoin", "[", 
+        RowBox[{
+         RowBox[{"namesLower", "[", 
+          RowBox[{"[", 
+           RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", "\"\<-\>\"", ",", 
+         RowBox[{
+          RowBox[{"Characters", "[", 
+           RowBox[{"namesLower", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "2", ",", "1"}], "]"}], "]"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}], ",", 
+         RowBox[{
+          RowBox[{"Characters", "[", 
+           RowBox[{"namesLower", "[", 
+            RowBox[{"[", 
+             RowBox[{"i", ",", "2", ",", "2"}], "]"}], "]"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "namesLower", "]"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"40", "\[Rule]", "\"\<walker-s_\>\""}], ",", 
+       RowBox[{"35", "\[Rule]", "\"\<rubins-k_\>\""}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"txtFiles", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"StringJoin", "[", 
+      RowBox[{"\"\<C:/Users/graham/Documents/astroBio/txt/\>\"", ",", 
+       RowBox[{"names", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], ",", "\"\<.txt\>\""}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "namesLower", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"txtFiles", "//", "TableForm"}]}], "Input",
+ CellChangeTimes->{{3.6664419727932515`*^9, 3.666441997038676*^9}, {
+  3.6664423842063885`*^9, 3.6664423950074687`*^9}, {3.6664424523862057`*^9, 
+  3.666442453193287*^9}, {3.666442655906556*^9, 3.6664427266696315`*^9}, {
+  3.6664428681957827`*^9, 3.666443116212582*^9}, {3.6664442106540155`*^9, 
+  3.6664442391588655`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Part", "::", "partw"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Part \[NoBreak]\\!\\(2\\)\[NoBreak] of \[NoBreak]\\!\\({\\\
+\"shannon\\\"}\\)\[NoBreak] does not exist. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/General/partw\\\", ButtonNote -> \
+\\\"Part::partw\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6671259696428275`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringJoin", "::", "string"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"String expected at position \[NoBreak]\\!\\(2\\)\[NoBreak] \
+in \[NoBreak]\\!\\(\\\"walker-s\\\" <> \\(\\(\\(\\({\\(\\({\\(\\({\\\"acaba\\\
+\"}\\)\\), \\(\\({\\\"joseph\\\", \\\"m.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"arnold\\\"}\\)\\), \\(\\({\\\"richard\\\", \
+\\\"r.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"aunon\\\"}\\)\\), \
+\\(\\({\\\"serena\\\", \\\"m.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"barratt\\\"}\\)\\), \\(\\({\\\"michael\\\", \
+\\\"r.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"behnken\\\"}\\)\\), \
+\\(\\({\\\"robert\\\", \\\"l.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"boe\\\"}\\)\\), \\(\\({\\\"eric\\\", \
+\\\"a.\\\"}\\)\\)}\\)\\), \\(\\(\[LeftSkeleton] 35 \[RightSkeleton]\\)\\), \
+\\(\\({\\(\\({\\\"wilson\\\"}\\)\\), \\(\\({\\\"stephanie\\\", \\\"d.\\\"}\\)\
+\\)}\\)\\), \\(\\({\\(\\({\\\"whitson\\\"}\\)\\), \\(\\({\\\"peggy\\\", \
+\\\"a.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"williams\\\"}\\)\\), \
+\\(\\({\\\"jeffrey\\\", \\\"n.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"williams\\\"}\\)\\), \\(\\({\\\"sunita\\\", \
+\\\"l.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"wilmore\\\"}\\)\\), \
+\\(\\({\\\"barry\\\", \\\"e.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"wiseman\\\"}\\)\\), \\(\\({\\\"g.\\\", \\\"reid\\\"}\\)\\)}\
+\\)\\)}\\)\\) \[LeftDoubleBracket] \\(\\(40, 2, 2\\)\\) \[RightDoubleBracket]\
+\\)\\)\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/StringJoin\\\", ButtonNote -> \
+\\\"StringJoin::string\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6671259697108345`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"StringJoin", "::", "string"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"String expected at position \[NoBreak]\\!\\(2\\)\[NoBreak] \
+in \[NoBreak]\\!\\(\\\"walker-s\\\" <> \\(\\(\\(\\({\\(\\({\\(\\({\\\"acaba\\\
+\"}\\)\\), \\(\\({\\\"joseph\\\", \\\"m.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"arnold\\\"}\\)\\), \\(\\({\\\"richard\\\", \
+\\\"r.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"aunon\\\"}\\)\\), \
+\\(\\({\\\"serena\\\", \\\"m.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"barratt\\\"}\\)\\), \\(\\({\\\"michael\\\", \
+\\\"r.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"behnken\\\"}\\)\\), \
+\\(\\({\\\"robert\\\", \\\"l.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"boe\\\"}\\)\\), \\(\\({\\\"eric\\\", \
+\\\"a.\\\"}\\)\\)}\\)\\), \\(\\(\[LeftSkeleton] 35 \[RightSkeleton]\\)\\), \
+\\(\\({\\(\\({\\\"wilson\\\"}\\)\\), \\(\\({\\\"stephanie\\\", \\\"d.\\\"}\\)\
+\\)}\\)\\), \\(\\({\\(\\({\\\"whitson\\\"}\\)\\), \\(\\({\\\"peggy\\\", \
+\\\"a.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"williams\\\"}\\)\\), \
+\\(\\({\\\"jeffrey\\\", \\\"n.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"williams\\\"}\\)\\), \\(\\({\\\"sunita\\\", \
+\\\"l.\\\"}\\)\\)}\\)\\), \\(\\({\\(\\({\\\"wilmore\\\"}\\)\\), \
+\\(\\({\\\"barry\\\", \\\"e.\\\"}\\)\\)}\\)\\), \
+\\(\\({\\(\\({\\\"wiseman\\\"}\\)\\), \\(\\({\\\"g.\\\", \\\"reid\\\"}\\)\\)}\
+\\)\\)}\\)\\) \[LeftDoubleBracket] \\(\\(40, 2, 2\\)\\) \[RightDoubleBracket]\
+\\)\\)\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/StringJoin\\\", ButtonNote -> \
+\\\"StringJoin::string\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6671259697798414`*^9}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/acaba-jm.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/arnold-rr.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/aunon-sm.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/barratt-mr.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/behnken-rl.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/boe-ea.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/bowen-sg.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/bresnik-rj.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/burbank-dc.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/cassada-ja.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/cassidy-cj.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/dyson-tc.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/epps-jj.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/feustel-aj.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/fincke-em.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/fischer-jd.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/fossum-me.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/glover-vj.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/hague-tn.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/hopkins-ms.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/hurley-dg.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/kelly-sj.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/kimbrough-rs.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/koch-ch.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/kopra-tl.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/lindgren-kn.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/mann-na.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/marshburn-th.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/mcarthur-km.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/mcclain-ac.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/meir-ju.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/morgan-ar.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/nyberg-kl.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/pettit-dr.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/rubins-k_.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/tingle-sd.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/vandehei-mt.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/virts-tw.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/walheim-rj.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/walker-s_.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/wheelock-dh.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/wilson-sd.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/whitson-pa.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/williams-jn.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/williams-sl.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/wilmore-be.txt\"\>"},
+     {"\<\"C:/Users/graham/Documents/astroBio/txt/wiseman-gr.txt\"\>"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.666442930485011*^9, 3.666442951647127*^9}, {
+   3.6664430582507863`*^9, 3.666443084909452*^9}, 3.666443117050666*^9, 
+   3.6664436509720526`*^9, 3.666444240434993*^9, 3.6671258458494496`*^9, 
+   3.667125969785842*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"txtFiles", "//", "Length"}]], "Input",
+ CellChangeTimes->{{3.6664427289278574`*^9, 3.666442731909156*^9}}],
+
+Cell[BoxData["47"], "Output",
+ CellChangeTimes->{3.666442732224187*^9, 3.6664433160885677`*^9, 
+  3.666444247841734*^9, 3.6671259748843517`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"For", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ";", 
+    RowBox[{"bioRaw", "=", 
+     RowBox[{"{", "}"}]}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"i", "\[LessEqual]", "47"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"bioRaw", ",", 
+     RowBox[{"Import", "[", 
+      RowBox[{"txtFiles", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.666443334545413*^9, 3.666443428594817*^9}, {
+  3.6664435351114674`*^9, 3.666443543216278*^9}, {3.666443786226577*^9, 
+  3.666443849652919*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bioRaw", "//", "Length"}]], "Input",
+ CellChangeTimes->{{3.666443856547608*^9, 3.66644385926388*^9}}],
+
+Cell[BoxData["47"], "Output",
+ CellChangeTimes->{3.6664438601529684`*^9, 3.6664442808110304`*^9, 
+  3.667125982122075*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"bioRaw", "[", 
+    RowBox[{"[", "i", "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", 
+     RowBox[{"Length", "[", "bioRaw", "]"}], ",", "1"}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6664443917321215`*^9, 3.6664444414220896`*^9}, {
+  3.6671272381586666`*^9, 3.6671272431121616`*^9}, {3.6671273763184814`*^9, 
+  3.66712739710956*^9}, {3.6671279096248064`*^9, 3.6671279573945827`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`i$$ = 47, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`i$$], 1, 47, 1}}, Typeset`size$$ = {
+    704., {1464., 12.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`i$27648$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`i$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`i$$, $CellContext`i$27648$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Part[$CellContext`bioRaw, $CellContext`i$$], 
+      "Specifications" :> {{$CellContext`i$$, 1, 47, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{755., {794., 801.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.6664443940613537`*^9, 3.666444441750122*^9}, 
+   3.6671259833071938`*^9, {3.6671272384166927`*^9, 3.6671272432081714`*^9}, {
+   3.667127376734523*^9, 3.6671273974085903`*^9}, {3.6671279404078846`*^9, 
+   3.667127957795623*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Position", "[", 
+  RowBox[{
+   RowBox[{"TextSentences", "[", 
+    RowBox[{"bioRaw", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "]"}], ","}]}]], "Input",
+ CellChangeTimes->{{3.667131456925501*^9, 3.667131485397348*^9}, {
+  3.667131520143822*^9, 3.6671315243272405`*^9}, {3.6671319772435274`*^9, 
+  3.667131987435547*^9}, {3.6671322167174726`*^9, 3.667132242342035*^9}}],
+
+Cell[BoxData["28"], "Output",
+ CellChangeTimes->{{3.6671322242772284`*^9, 3.667132233605161*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{944, 1102},
+WindowMargins->{{Automatic, 8}, {Automatic, 0}},
+FrontEndVersion->"10.2 for Microsoft Windows (64-bit) (July 29, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 142, 2, 31, "Input"],
+Cell[CellGroupData[{
+Cell[725, 26, 99, 1, 70, "Section"],
+Cell[827, 29, 389, 9, 31, "Input"],
+Cell[CellGroupData[{
+Cell[1241, 42, 132, 2, 31, "Input"],
+Cell[1376, 46, 120, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1533, 53, 877, 24, 52, "Input"],
+Cell[2413, 79, 3014, 64, 731, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5464, 148, 135, 2, 31, "Input"],
+Cell[5602, 152, 71, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5710, 158, 403, 11, 31, "Input"],
+Cell[6116, 171, 118, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6271, 178, 155, 3, 31, "Input"],
+Cell[6429, 183, 155, 4, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6621, 192, 330, 9, 31, "Input"],
+Cell[6954, 203, 166, 3, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7157, 211, 179, 4, 31, "Input"],
+Cell[7339, 217, 93, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7469, 223, 386, 11, 31, "Input"],
+Cell[7858, 236, 71, 1, 31, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7978, 243, 156, 2, 70, "Section"],
+Cell[8137, 247, 778, 20, 52, "Input"],
+Cell[CellGroupData[{
+Cell[8940, 271, 1244, 29, 92, "Input"],
+Cell[10187, 302, 583, 12, 21, "Message"],
+Cell[10773, 316, 1686, 28, 73, "Message"],
+Cell[12462, 346, 1686, 28, 73, "Message"],
+Cell[14151, 376, 118, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14306, 383, 1348, 30, 152, "Input"],
+Cell[15657, 415, 502, 10, 21, "Message"],
+Cell[16162, 427, 1604, 26, 73, "Message"],
+Cell[17769, 455, 1604, 26, 73, "Message"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19422, 487, 104, 1, 70, "Section"],
+Cell[19529, 490, 168, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[19722, 497, 350, 8, 52, "Input"],
+Cell[20075, 507, 180, 3, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20292, 515, 397, 9, 52, "Input"],
+Cell[20692, 526, 126, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20855, 533, 399, 9, 52, "Input"],
+Cell[21257, 544, 152, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21446, 551, 454, 10, 52, "Input"],
+Cell[21903, 563, 153, 2, 31, "Output"]
+}, Open  ]],
+Cell[22071, 568, 143, 1, 30, "Text"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22251, 574, 95, 1, 70, "Section"],
+Cell[22349, 577, 313, 6, 30, "Text"],
+Cell[CellGroupData[{
+Cell[22687, 587, 1983, 49, 152, "Input"],
+Cell[24673, 638, 482, 10, 21, "Message"],
+Cell[25158, 650, 1707, 29, 73, "Message"],
+Cell[26868, 681, 1707, 29, 73, "Message"],
+Cell[28578, 712, 4124, 67, 731, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32739, 784, 130, 2, 31, "Input"],
+Cell[32872, 788, 144, 2, 31, "Output"]
+}, Open  ]],
+Cell[33031, 793, 708, 17, 132, "Input"],
+Cell[CellGroupData[{
+Cell[33764, 814, 125, 2, 31, "Input"],
+Cell[33892, 818, 122, 2, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34051, 825, 481, 11, 31, "Input"],
+Cell[34535, 838, 1794, 36, 1612, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36366, 879, 392, 8, 31, "Input"],
+Cell[36761, 889, 97, 1, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
