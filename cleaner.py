@@ -2,13 +2,24 @@
 
 #this is the text parser for the astrobio experiment
 
-text = open("acaba-jm.txt", "r")
+import string
 
+textFile = open("raw/acaba-jm.txt", "r")
 out = open("out", "w")
 
-temp = text.read(10)
+temp = textFile.read()
 
-out.write(temp)
+#find ages
+born = temp.find('Born in')
+if born == -1:
+	born = temp.find('born in')
+if born == -1:
+	print "cant find birthdate \n"
+print 'born position is {}'.format(born)
 
-text.close()
+
+
+#out.write(temp)
+
+textFile.close()
 out.close()
