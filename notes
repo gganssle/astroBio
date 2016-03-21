@@ -3,3 +3,9 @@
 Data to gather: name, age, married?, how many kids, education degree, graduation year, education specialty, millitary?, mil rank, pilot? mil/private, special honors, hobbies, experience
 
 First aim: extract ages
+
+20160320
+
+Ages done, next goals are to extract marital status and plot both of these things w matplotlib or similar.
+
+
