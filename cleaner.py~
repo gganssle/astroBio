@@ -90,20 +90,21 @@ for i in range(count) :
 
 	#how many kids? column 1 is daughters, second = sons, 3rd = unknown gender
 	per = raw[raw.find('PERSONAL DATA') : raw.find('EDUCATION')]
-	num = ['a','one','two','three','four','five','six','seven','eight','nine']
+	num = ['two','three','four','five','six','seven','eight','nine']
 
 	words = ['daughter','Daughter']
 	temp = 0
 	for j in range(len(words)) :
 		temp = per.find(words[j])
 		if temp >= 0 : 
-			temp2 = per[temp - 20 : temp].split()
-			if ((words[0] in temp2) | (words[1] in temp2)) :
-				kids[i][0] = 1
-			for l in range(len(num)) :
-				for k in range(1,len(temp2)) :
-					if (((words[0] in temp2) | (words[1] in temp2)) & (num[k] in temp2)) :
-						kids[i][0] = k
+			temp2 = per[temp - 10 : temp].split()
+			kids[i][0] = 1
+#########################################################
+			print names[i], temp2
+#############################################################
+			for k in range(len(num)) :
+				if (num[k] in temp2) :
+					kids[i][0] = k + 2
 			break
 
 	words = ['son','Son']
@@ -111,13 +112,14 @@ for i in range(count) :
 	for j in range(len(words)) :
 		temp = per.find(words[j])
 		if temp >= 0 : 
-			temp2 = per[temp - 20 : temp].split()
-			if ((words[0] in temp2) | (words[1] in temp2)) :
-				kids[i][1] = 1
-			for l in range(len(num)) :
-				for k in range[1,len(temp2)) :
-					if (((words[0] in temp2) | (words[1] in temp2)) & (num[k] in temp2)) :
-						kids[i][1] = k
+			temp2 = per[temp - 10 : temp].split()
+			kids[i][1] = 1
+#########################################################
+			print names[i], temp2
+#############################################################
+			for k in range(len(num)) :
+				if (num[k] in temp2) :
+					kids[i][1] = k + 2
 			break
 
 	words = ['Kid','kid','Child','child']
@@ -125,13 +127,13 @@ for i in range(count) :
 	for j in range(len(words)) :
 		temp = per.find(words[j])
 		if temp >= 0 : 
-			temp2 = per[temp - 20 : temp].split()
-			if ((words[0] in temp2) | (words[1] in temp2)) :
-				kids[i][2] = 1
-			for l in range(len(num)) :
-				for k in range(1,len(temp2)) :
-					if (((words[0] in temp2) | (words[1] in temp2)) & (num[k] in temp2)) :
-						kids[i][2] = k
+			temp2 = per[temp - 10 : temp].split()
+#########################################################
+			print names[i], temp2
+#############################################################
+			for k in range(len(num)) :
+				if (num[k] in temp2) :
+					kids[i][2] = k + 2
 			break
 	
 	#clean up

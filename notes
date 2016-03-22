@@ -1,6 +1,6 @@
 20160318
 
-Data to gather: name, age, married?, how many kids, education degree, graduation year, education specialty, millitary?, mil rank, pilot? mil/private, special honors, hobbies, experience
+Data to gather: name, age, married?, how many kids, education degree, graduation year, education specialty, millitary?, mil rank, pilot? mil/private, special honors, hobbies, experience, languages
 
 First aim: extract ages
 
@@ -13,3 +13,9 @@ Ages done, next goals are to extract marital status and plot both of these thing
 Okay, now let's try for # and ages of kids. Make a 2D array, dimension 1 = astronaut, dimension 2 = daughters/sons/unknown gender. Then search for key tokens "kid", "child", "son", "daughter", "boy", "girl"
 
 Text number length: one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve
+
+20160322
+
+I've got the children counts basically sorted. Here's what's left on the list:
+
+graduation year, education specialty, millitary?, mil rank, pilot? mil/private, special honors, hobbies, experience, languages
