@@ -1,6 +1,8 @@
+This file is just random thoughts and placeholders while I work through this project, added stream-of-conciousness.
+
 20160318
 
-Data to gather: name, age, married?, how many kids, education degree, graduation year, education specialty, millitary?, mil rank, pilot? mil/private, special honors, hobbies, experience
+Data to gather: name, age, married?, how many kids, education degree, education specialty, millitary?, mil rank, pilot? mil/private, special honors, hobbies, experience, languages
 
 First aim: extract ages
 
@@ -13,3 +15,13 @@ Ages done, next goals are to extract marital status and plot both of these thing
 Okay, now let's try for # and ages of kids. Make a 2D array, dimension 1 = astronaut, dimension 2 = daughters/sons/unknown gender. Then search for key tokens "kid", "child", "son", "daughter", "boy", "girl"
 
 Text number length: one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve
+
+20160322
+
+I've got the children counts basically sorted. Here's what's left on the list:
+
+education specialty, millitary?, mil rank, pilot? mil/private, special honors, hobbies, experience, languages
+
+Next up I'll add in the education fields per degree. Probably best to slice forward from each file's respective degree tag, tokenize, and pull a word or two after the token 'in', as in "Ann Annson has a Ph.D. in chemical engineering from Acme University". Then clean in the #fix inconsistencies section. Keep raw strings for analysis in Jupyter. This grabbed a lot of trash too, so I'll reclean in analysis.
+
+

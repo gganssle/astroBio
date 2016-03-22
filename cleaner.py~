@@ -14,7 +14,9 @@ nameFile.close()
 born = []
 marry = []
 edu = [0] * count
+eduSpec = [[0] * 4 for i in range(count)]
 kids = [[0] * 3 for i in range(count)]
+lang = [0] * count
 
 #iterate over all astros
 for i in range(count) :
@@ -59,34 +61,76 @@ for i in range(count) :
 		marry.append(0)
 	
 	#educational status; 1 = bs, 10 = ms, 100 = md, 1000 = phd
+	per = raw[raw.find('EDUCATION') : ]
+
 	words = ['b.s','B.S','bachelor','Bachelor']
-	temp = 0
 	for j in range(len(words)) :
 		temp = raw.find(words[j])
 		if temp >= 0 : 
 			edu[i] += 1
 			break
+	for j in range(len(words)) :
+		temp = per.find(words[j])
+		if temp >= 0 :
+			temp = per[temp : temp + 80].split()
+			temp2 = 0
+			for k in range(len(temp)) :
+				if temp[k] == 'in' :
+					temp2 = k
+					break
+			eduSpec[i][0] = ''.join((temp[temp2+1],' ',temp[temp2+2]))
+
 	words = ['m.s','M.S','master','Master']
-	temp = 0
 	for j in range(len(words)) :
 		temp = raw.find(words[j])
 		if temp >= 0 : 
 			edu[i] += 10
 			break
+	for j in range(len(words)) :
+		temp = per.find(words[j])
+		if temp >= 0 :
+			temp = per[temp : temp + 80].split()
+			temp2 = 0
+			for k in range(len(temp)) :
+				if temp[k] == 'in' :
+					temp2 = k
+					break
+			eduSpec[i][1] = ''.join((temp[temp2+1],' ',temp[temp2+2]))
+
 	words = ['m.d','M.D','MD']
-	temp = 0
 	for j in range(len(words)) :
 		temp = raw.find(words[j])
 		if temp >= 0 : 
 			edu[i] += 100
 			break
+	for j in range(len(words)) :
+		temp = per.find(words[j])
+		if temp >= 0 :
+			temp = per[temp : temp + 80].split()
+			temp2 = 0
+			for k in range(len(temp)) :
+				if temp[k] == 'in' :
+					temp2 = k
+					break
+			eduSpec[i][2] = ''.join((temp[temp2+1],' ',temp[temp2+2]))
+
 	words = ['phd','ph.d','Ph.D','PH.D','PHD']
-	temp = 0
 	for j in range(len(words)) :
 		temp = raw.find(words[j])
 		if temp >= 0 : 
 			edu[i] += 1000
 			break
+	words = ['phd','ph.d','Ph.D','PH.D','PHD','octorate']
+	for j in range(len(words)) :
+		temp = per.find(words[j])
+		if temp >= 0 :
+			temp = per[temp : temp + 80].split()
+			temp2 = 0
+			for k in range(len(temp)) :
+				if temp[k] == 'in' :
+					temp2 = k
+					break
+			eduSpec[i][3] = ''.join((temp[temp2+1],' ',temp[temp2+2]))
 
 	#how many kids? column 1 is daughters, second = sons, 3rd = unknown gender
 	per = raw[raw.find('PERSONAL DATA') : raw.find('EDUCATION')]
@@ -99,9 +143,6 @@ for i in range(count) :
 		if temp >= 0 : 
 			temp2 = per[temp - 10 : temp].split()
 			kids[i][0] = 1
-#########################################################
-			print names[i], temp2
-#############################################################
 			for k in range(len(num)) :
 				if (num[k] in temp2) :
 					kids[i][0] = k + 2
@@ -114,9 +155,6 @@ for i in range(count) :
 		if temp >= 0 : 
 			temp2 = per[temp - 10 : temp].split()
 			kids[i][1] = 1
-#########################################################
-			print names[i], temp2
-#############################################################
 			for k in range(len(num)) :
 				if (num[k] in temp2) :
 					kids[i][1] = k + 2
@@ -128,13 +166,22 @@ for i in range(count) :
 		temp = per.find(words[j])
 		if temp >= 0 : 
 			temp2 = per[temp - 10 : temp].split()
-#########################################################
-			print names[i], temp2
-#############################################################
 			for k in range(len(num)) :
 				if (num[k] in temp2) :
 					kids[i][2] = k + 2
 			break
+	
+	#Que idiomas (otra que ingles) habla usted?
+	di = ['Swedish','Russian','Spanish','French','Italian','Japanese','German','Mandarin',
+'Hindi','Arabic','Portuguese','Bengali','Javanese','Dutch']
+	per = raw[raw.find('PERSONAL DATA') : raw.find('EDUCATION')]
+
+	for j in range(len(di)) :
+		if per.find(di[j]) != -1 :
+			if lang[i] == 0 :
+				lang[i] = di[j]
+			else :
+				lang[i] = ' '.join((lang[i],di[j]))
 	
 	#clean up
 	textFile.close()
@@ -145,7 +192,7 @@ born[44] = 1965
 
 #print for QC
 for i in range(47) :
-	print i, '\t', names[i], '\t', kids[i]
+	print i, '\t', names[i], '\t', lang[i]
 
 #write out
 #out = open("bday", "w")
