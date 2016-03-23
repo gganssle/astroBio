@@ -17,6 +17,7 @@ edu = [0] * count
 eduSpec = [[0] * 4 for i in range(count)]
 kids = [[0] * 3 for i in range(count)]
 lang = [0] * count
+rank = []
 
 #iterate over all astros
 for i in range(count) :
@@ -183,6 +184,24 @@ for i in range(count) :
 			else :
 				lang[i] = ' '.join((lang[i],di[j]))
 	
+	#military rank and affiliation
+	di = ['ENSIGN','SECOND LIEUTENANT','FIRST LIEUTENANT','LIEUTENANT',
+'LIEUTENANT COMMANDER','COMMANDER','CAPTAIN','MAJOR','LIEUTENANT COLONEL','LT. COL.',
+'COLONEL','COL','GENERAL','ADMIRAL']
+	per = raw[0 : raw.find('PERSONAL')]
+
+	rank.append('0')
+	for j in range(len(di)) :
+		if per.find(di[j]) != -1 :
+			rank[i] = di[j].lower()
+			break
+
+	di = ['USAF','USN','USA','USCG','U.S.N','U.S.A','U.S.A.F','U. S. NAVY', 'U.S. ARMY','U.S. MARINE CORPS','U.S. NAVY','U.S. AIR FORCE','U. S. ARMY']
+	for j in range(len(di)) :
+		if per.find(di[j]) != -1 :
+			rank [i] = ' '.join((rank[i],di[j]))
+			break
+
 	#clean up
 	textFile.close()
 
@@ -192,7 +211,10 @@ born[44] = 1965
 
 #print for QC
 for i in range(47) :
-	print i, '\t', names[i], '\t', lang[i]
+	if i == 5 :
+		print i, '\t', names[i], '\t', '\t', rank[i]
+	else :
+		print i, '\t', names[i], '\t', rank[i]
 
 #write out
 #out = open("bday", "w")

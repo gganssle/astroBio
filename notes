@@ -26,4 +26,8 @@ Next up I'll add in the education fields per degree. Probably best to slice forw
 
 Languages should be pretty easy once I build dict, so that's on deck right now.
 
+20160323
+
+Military rank is up. Simply raw.find(rank name). 
+
 
