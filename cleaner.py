@@ -18,6 +18,7 @@ eduSpec = [[0] * 4 for i in range(count)]
 kids = [[0] * 3 for i in range(count)]
 lang = [0] * count
 rank = []
+wings = []
 
 #iterate over all astros
 for i in range(count) :
@@ -186,7 +187,7 @@ for i in range(count) :
 	
 	#military rank and affiliation
 	di = ['ENSIGN','SECOND LIEUTENANT','FIRST LIEUTENANT','LIEUTENANT',
-'LIEUTENANT COMMANDER','COMMANDER','CAPTAIN','MAJOR','LIEUTENANT COLONEL','LT. COL.',
+'LIEUTENANT COMMANDER','COMMANDER','CAPTAIN','MAJOR','LIEUTENANT COLONEL','LT. COL',
 'COLONEL','COL','GENERAL','ADMIRAL']
 	per = raw[0 : raw.find('PERSONAL')]
 
@@ -196,11 +197,32 @@ for i in range(count) :
 			rank[i] = di[j].lower()
 			break
 
-	di = ['USAF','USN','USA','USCG','U.S.N','U.S.A','U.S.A.F','U. S. NAVY', 'U.S. ARMY','U.S. MARINE CORPS','U.S. NAVY','U.S. AIR FORCE','U. S. ARMY']
+	di = ['USAF','USN','USA','USCG','U.S.N','U.S.A','U.S.A.F','U. S. NAVY', 'U.S. ARMY','U.S. MARINE CORPS','U.S. NAVY','U.S. AIR FORCE','U. S. AIR FORCE','U. S. ARMY']
 	for j in range(len(di)) :
 		if per.find(di[j]) != -1 :
-			rank [i] = ' '.join((rank[i],di[j]))
+			rank[i] = ' '.join((rank[i],di[j]))
 			break
+
+	temp = rank[i].split()
+	if rank[i].find('AIR') != -1 :
+		rank[i] = ' '.join((temp[0], 'USAF'))
+	if rank[i].find('MARINE') != -1 :
+		rank[i] = ' '.join((temp[0], 'USMC'))
+	if rank[i].find('NAVY') != -1 :
+		rank[i] = ' '.join((temp[0], 'USN'))
+	if rank[i].find('ARMY') != -1 :
+		rank[i] = ' '.join((temp[0], 'USA'))
+	temp = rank[i].split()
+	if rank[i].find('col') != -1 :
+		rank[i] = ' '.join(('colonel', temp[1]))
+	if rank[i].find('lt.') != -1 :
+		rank[i] = ' '.join(('lt.col', temp[1]))
+
+	#Did Red Bull give you wings?
+	if raw.find('ilot') != -1 :
+		wings.append(1)
+	else :
+		wings.append(0)
 
 	#clean up
 	textFile.close()
@@ -208,6 +230,7 @@ for i in range(count) :
 #fix inconsistencies
 born[16] = 1957
 born[44] = 1965
+wings[41] = 0
 
 #print for QC
 for i in range(47) :
@@ -215,6 +238,10 @@ for i in range(47) :
 		print i, '\t', names[i], '\t', '\t', rank[i]
 	else :
 		print i, '\t', names[i], '\t', rank[i]
+
+#for i in range(count) :
+#	if ((wings[i] == 1) & (rank[i] == "0")) :
+#		print i, '\t', names[i]
 
 #write out
 #out = open("bday", "w")

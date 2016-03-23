@@ -2,7 +2,7 @@ This file is just random thoughts and placeholders while I work through this pro
 
 20160318
 
-Data to gather: name, age, married?, how many kids, education degree, education specialty, millitary?, mil rank, pilot? mil/private, special honors, hobbies, experience, languages
+Data to gather: name, age, married?, how many kids, education degree, education specialty, millitary?, mil rank, pilot? mil/private, hobbies, experience, languages
 
 First aim: extract ages
 
@@ -20,7 +20,7 @@ Text number length: one, two, three, four, five, six, seven, eight, nine, ten, e
 
 I've got the children counts basically sorted. Here's what's left on the list:
 
-education specialty, millitary?, mil rank, pilot? mil/private, special honors, hobbies, experience, languages
+education specialty, millitary?, mil rank, pilot? mil/private, hobbies, experience, languages
 
 Next up I'll add in the education fields per degree. Probably best to slice forward from each file's respective degree tag, tokenize, and pull a word or two after the token 'in', as in "Ann Annson has a Ph.D. in chemical engineering from Acme University". Then clean in the #fix inconsistencies section. Keep raw strings for analysis in Jupyter. This grabbed a lot of trash too, so I'll reclean in analysis.
 
@@ -29,5 +29,9 @@ Languages should be pretty easy once I build dict, so that's on deck right now.
 20160323
 
 Military rank is up. Simply raw.find(rank name). 
+
+now i'll search for pilot status
+
+What's left on the list?: hobbies, experience
 
 
