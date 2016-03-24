@@ -19,6 +19,7 @@ kids = [[0] * 3 for i in range(count)]
 lang = [0] * count
 rank = []
 wings = []
+hobb = [0] * count
 
 #iterate over all astros
 for i in range(count) :
@@ -223,7 +224,20 @@ for i in range(count) :
 		wings.append(1)
 	else :
 		wings.append(0)
+	
+	#hobbies and interests
+	di = ['camping', 'hiking', 'biking', 'kayak', 'scuba','running',
+'fishing', 'reading', 'bicycling', 'ornithology', 'paleontology', 'guitar','basketball', 'softball',
+'martial arts', 'cricket', 'jet skiing','writing', 'sailing', 'boat restoration','travel','music','photography','weight training', 'sports', 'motorcycl', 'family','church','skiing','astronomy','auto repair','auto restoration','geology','languages','backpacking','flying','exercise','hockey','football', 'hunting', 'cycling','NASCAR',' baseball', 'golf','weightlifting','climbing', 'paddling','yoga','swimming','movies','snowboarding','cooking','rugby','soccer','history','sewing', 'drawing','painting','piano','windsurfing','woodworking','music','stamp collecting']
+	per = raw[raw.find('PERSONAL DATA') : raw.find('EDUCATION')]
 
+	for j in range(len(di)) :
+		if per.find(di[j]) != -1 :
+			if hobb[i] == 0 :
+				hobb[i] = di[j]
+			else :
+				hobb[i] = ', '.join((hobb[i],di[j]))
+	
 	#clean up
 	textFile.close()
 
@@ -235,9 +249,9 @@ wings[41] = 0
 #print for QC
 for i in range(47) :
 	if i == 5 :
-		print i, '\t', names[i], '\t', '\t', rank[i]
+		print i, '\t', names[i], '\t', '\t', hobb[i]
 	else :
-		print i, '\t', names[i], '\t', rank[i]
+		print i, '\t', names[i], '\t', hobb[i]
 
 #for i in range(count) :
 #	if ((wings[i] == 1) & (rank[i] == "0")) :
