@@ -249,21 +249,76 @@ wings[41] = 0
 #print for QC
 for i in range(47) :
 	if i == 5 :
-		print i, '\t', names[i], '\t', '\t', hobb[i]
+		print i, '\t', names[i], '\t', '\t', born[i]
 	else :
-		print i, '\t', names[i], '\t', hobb[i]
+		print i, '\t', names[i], '\t', born[i]
+
 
 #for i in range(count) :
 #	if ((wings[i] == 1) & (rank[i] == "0")) :
 #		print i, '\t', names[i]
 
-#write out
-#out = open("bday", "w")
-#for i in range(count) :
-#	temp = ''.join((str(born[i]), '\n'))
-#	out.write(temp)
-#out.close()
 
+#write out
+out = open("dat/born", "w")
+for i in range(count) :
+	temp = ''.join((str(born[i]), '\n'))
+	out.write(temp)
+out.close()
+
+out = open("dat/married", "w")
+for i in range(count) :
+	temp = ''.join((str(marry[i]), '\n'))
+	out.write(temp)
+out.close()
+
+out = open("dat/married", "w")
+for i in range(count) :
+	temp = ''.join((str(marry[i]), '\n'))
+	out.write(temp)
+out.close()
+
+out = open("dat/education", "w")
+for i in range(count) :
+	temp = ''.join((str(edu[i]), '\n'))
+	out.write(temp)
+out.close()
+
+out = open("dat/eduSpec", "w")
+for i in range(count) :
+	temp = ''.join((str(eduSpec[i]), '\n'))
+	out.write(temp)
+out.close()
+
+out = open("dat/children", "w")
+for i in range(count) :
+	temp = ''.join((str(kids[i]), '\n'))
+	out.write(temp)
+out.close()
+
+out = open("dat/languages", "w")
+for i in range(count) :
+	temp = ''.join((str(lang[i]), '\n'))
+	out.write(temp)
+out.close()
+
+out = open("dat/millitary", "w")
+for i in range(count) :
+	temp = ''.join((str(rank[i]), '\n'))
+	out.write(temp)
+out.close()
+
+out = open("dat/pilot", "w")
+for i in range(count) :
+	temp = ''.join((str(wings[i]), '\n'))
+	out.write(temp)
+out.close()
+
+out = open("dat/interests", "w")
+for i in range(count) :
+	temp = ''.join((str(hobb[i]), '\n'))
+	out.write(temp)
+out.close()
 
 
 
