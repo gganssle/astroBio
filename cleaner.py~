@@ -251,7 +251,7 @@ for i in range(47) :
 	if i == 5 :
 		print i, '\t', names[i], '\t', '\t', edu[i], '\t', eduSpec[i]
 	else :
-		print i, '\t', names[i], '\t', edu[i], '\t', eduSpec[i]
+		print i, '\t', names[i], '\t', edu[i], '\t', edu[i]
 
 
 #for i in range(count) :
