@@ -20,6 +20,7 @@ lang = [0] * count
 rank = []
 wings = []
 hobb = [0] * count
+exp = [0] * count
 
 #iterate over all astros
 for i in range(count) :
@@ -176,7 +177,7 @@ for i in range(count) :
 	
 	#Que idiomas (otra que ingles) habla usted?
 	di = ['Swedish','Russian','Spanish','French','Italian','Japanese','German','Mandarin',
-'Hindi','Arabic','Portuguese','Bengali','Javanese','Dutch']
+'Hindi','Arabic','Portuguese','Bengali','Javanese','Dutch','ASL']
 	per = raw[raw.find('PERSONAL DATA') : raw.find('EDUCATION')]
 
 	for j in range(len(di)) :
@@ -228,7 +229,12 @@ for i in range(count) :
 	#hobbies and interests
 	di = ['camping', 'hiking', 'biking', 'kayak', 'scuba','running',
 'fishing', 'reading', 'bicycling', 'ornithology', 'paleontology', 'guitar','basketball', 'softball',
-'martial arts', 'cricket', 'jet skiing','writing', 'sailing', 'boat restoration','travel','music','photography','weight training', 'sports', 'motorcycl', 'family','church','skiing','astronomy','auto repair','auto restoration','geology','languages','backpacking','flying','exercise','hockey','football', 'hunting', 'cycling','NASCAR',' baseball', 'golf','weightlifting','climbing', 'paddling','yoga','swimming','movies','snowboarding','cooking','rugby','soccer','history','sewing', 'drawing','painting','piano','windsurfing','woodworking','music','stamp collecting']
+'martial arts', 'cricket', 'jet skiing','writing', 'sailing', 'boat restoration','travel','music',
+'photography','weight training', 'sports', 'motorcycl', 'family','church','skiing','astronomy','auto repair',
+'auto restoration','geology','languages','backpacking','flying','exercise','hockey','football', 'hunting',
+ 'cycling','NASCAR',' baseball', 'golf','weightlifting','climbing', 'paddling','yoga','swimming','movies',
+ 'snowboarding','cooking','rugby','soccer','history','sewing', 'drawing','painting','piano','windsurfing',
+ 'woodworking','music','stamp collecting']
 	per = raw[raw.find('PERSONAL DATA') : raw.find('EDUCATION')]
 
 	for j in range(len(di)) :
@@ -237,6 +243,40 @@ for i in range(count) :
 				hobb[i] = di[j]
 			else :
 				hobb[i] = ', '.join((hobb[i],di[j]))
+				
+	#professional experience
+	di = ['marine corps, reserves','geologist','peace corps','manager','taught','oceanographic technician',
+	'teacher','faculty','marine sciences','flight surgeon','physician','editor','test pilot',
+	'flight test engineer','combat ready pilot','flight commander','engineering officer','executive officer',
+	'project officer','flight instructor','aircraft commander','aeronautical engineering officer',
+	'naval aviator','instructor pilot','founded','navy seal','operations officer','electrician','reasearch',
+	'author','technical specialist','technical intelligence officer','auto mechanic','glazier','geophysicist',
+	'space systems engineer','space test engineer','flight test liaison','operational pilot','project pilot',
+	'air command','flight test engineer','flight test manager','exchange pilot','instructed','army aviator',
+	'assistant professor','field engineer','electrical engineer','platoon leader','jumpmaster','crew surgeon',
+	'emergency physician','chief scientist','helicopter pilot','staff scientist','technical staff',
+	'combat engineer','crew commander','flight controller','operations engineer','dynamics engineer',
+	'supervisor','diving officer','safety officer','principal investigator']
+	trans = ['millitary reserves','geologist','peace corps','manager','teacher','oceanographic technician',
+	'teacher','professor','marine scientist','flight surgeon','physician','editor','test pilot',
+	'flight test engineer','combat ready pilot','flight commander','engineering officer','executive officer',
+	'project officer','flight instructor','aircraft commander','aeronautical engineering officer',
+	'naval aviator','instructor pilot','company founder','navy seal','operations officer','electrician',
+	'reasearcher','author','technical specialist','technical intelligence officer','auto mechanic','glazier',
+	'geophysicist','space systems engineer','space test engineer','flight test liaison','operational pilot',
+	'project pilot','air command','flight test engineer','flight test manager','exchange pilot','instructor',
+	'army aviator','assistant professor','field engineer','electrical engineer','platoon leader','jumpmaster',
+	'crew surgeon','emergency physician','chief scientist','helicopter pilot','staff scientist','technical staff',
+	'combat engineer','crew commander','flight controller','operations engineer','dynamics engineer','supervisor',
+	'diving officer','safety officer','principle investigator']
+	per = raw[raw.find('EXPERIENCE:') : raw.find('NASA EXPERIENCE:')].lower()
+	
+	for j in range(len(di)) :
+		if per.find(di[j]) != -1 :
+			if exp[i] == 0 :
+				exp[i] = trans[j]
+			else :
+				exp[i] = ', '.join((exp[i],trans[j]))
 	
 	#clean up
 	textFile.close()
@@ -245,13 +285,15 @@ for i in range(count) :
 born[16] = 1957
 born[44] = 1965
 wings[41] = 0
+lang[11] = 'ASL Russian'
+exp[32] = 'researcher'
 
 #print for QC
 for i in range(47) :
 	if i == 5 :
-		print i, '\t', names[i], '\t', '\t', edu[i], '\t', eduSpec[i]
+		print i, '\t', names[i], '\t', '\t', exp[i]
 	else :
-		print i, '\t', names[i], '\t', edu[i], '\t', eduSpec[i]
+		print i, '\t', names[i], '\t', exp[i]
 
 
 #for i in range(count) :
@@ -320,7 +362,11 @@ for i in range(count) :
 	out.write(temp)
 out.close()
 
-
+out = open("dat/experience", "w")
+for i in range(count) :
+	temp = ''.join((str(exp[i]), '\n'))
+	out.write(temp)
+out.close()
 
 
 
