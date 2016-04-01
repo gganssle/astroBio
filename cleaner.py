@@ -6,7 +6,7 @@ import string
 import nltk
 
 #count and store names
-nameFile = open("astroNamesNormalized.dat","r")
+nameFile = open("dat/astroNamesNormalized.dat","r")
 names = nameFile.read().splitlines()
 count = len(names)
 nameFile.close()
