@@ -1,6 +1,6 @@
-<strong>Let's see what skills the current NASA astronaut class is missing!</strong>
+<em>Let's see what skills the current NASA astronaut class is missing!</em>
 
-Here's my analysis: <a href=https://github.com/gganssle/astroBio/blob/master/results.pdf> RESULTS </a>
+Read the paper with my analysis <a href=https://github.com/gganssle/astroBio/blob/master/results.pdf> here</a>.
 
 This repo contains the Mathematica notebook for scraping and scrubbing the PDF data from the NASA webserver, the raw text data scrubbed from the PDFs, and the Python script for the data analysis.
 
