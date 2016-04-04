@@ -1,4 +1,4 @@
-<em>Let's see what skills the current NASA astronaut class is missing!</em>
+<strong>Let's see what skills the current NASA astronaut class is missing!</strong>
 
 Read the paper with my analysis <a href=https://github.com/gganssle/astroBio/blob/master/results.pdf> here</a>.
 
