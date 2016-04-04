@@ -1,6 +1,6 @@
 <strong>Let's see what skills the current NASA astronaut class is missing!</strong>
 
-Read the paper with the analysis <a href=https://gra.m-gan.sl/astroHack.pdf> here</a>, or in the PDF above.
+Read the paper with the analysis <a href=http://gra.m-gan.sl/astroHack.pdf> here</a>, or in the PDF above.
 
 This repo contains the Mathematica notebook for scraping and scrubbing the PDF data from the NASA webserver, the raw text data scrubbed from the PDFs, and the Python script for the data analysis.
 
