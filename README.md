@@ -1,4 +1,4 @@
-Let's see what skills the current NASA astronaut class is missing!
+<strong>Let's see what skills the current NASA astronaut class is missing!</strong>
 
 Here's my analysis: <a href=https://github.com/gganssle/astroBio/blob/master/results.pdf> RESULTS </a>
 
@@ -6,4 +6,4 @@ This repo contains the Mathematica notebook for scraping and scrubbing the PDF d
 
 Once (if) I get to the point where this experiment has discovered some interesting information, I'll publish it @NASA and on the web so that both NASA and astronaut applicants have the deets.
 
-If you have any questions or comments please contact GRAM via his site: gra.m-gan.sl, or on Twitter @GrahamGanssle
+<i>If you have any questions or comments please contact GRAM via his site: <a href=http://gra.m-gan.sl>gra.m-gan.sl</a>, or on Twitter <a href=www.twitter.com/grahamganssle>@GrahamGanssle</a>.</i>
